@@ -21,7 +21,7 @@
 // @import "bootstrap/accordion";
 @import "bootstrap/breadcrumb";
 // @import "bootstrap/pagination";
-// @import "bootstrap/badge";
+@import "bootstrap/badge";
 // @import "bootstrap/alert";
 // @import "bootstrap/progress";
 // @import "bootstrap/list-group";
@@ -219,3 +219,18 @@
   padding-bottom: 4.5rem !important;
 }
 // stylelint-enable declaration-no-important
+
+.bd-sidebar {
+  @include media-breakpoint-up(lg) {
+    position: sticky;
+    top: 5rem;
+    // Override collapse behaviors
+    // stylelint-disable-next-line declaration-no-important
+    // display: block !important;
+    height: subtract(100vh, 6rem);
+    // Prevent focus styles to be cut off:
+    // padding-left: .25rem;
+    // margin-left: -.25rem;
+    overflow-y: auto;
+  }
+}

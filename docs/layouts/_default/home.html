@@ -1,19 +1,34 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    {{ partial "head" . }}
-  </head>
-  <body id="icons-body">
-    {{ partialCached "skippy" . }}
-    {{ partialCached "navbar" . }}
-    {{ partialCached "home/hero" . }}
+{{ define "hero" }}
+  {{ partialCached "home/hero" . }}
+{{ end }}
 
-    <main class="container-xxl bd-gutter" id="content">
+{{ define "main" }}
+  <div class="row g-5">
+    <div class="small" style="width: 20%;">
+      <div class="bd-sidebar">
+        <h4>Categories</h4>
+        <ul class="nav nav-pills flex-column" style="--bs-nav-link-padding-y: .375rem;
+                                                     --bs-nav-link-padding-x: .75rem;
+                                                     --bs-nav-link-color: var(--bs-gray-600);
+                                                     --bs-nav-pills-link-active-color: var(--bs-gray-900);
+                                                     --bs-nav-pills-link-active-bg: var(--bs-gray-100);">
+          <li class="nav-item">
+            <a class="nav-link active" href="">All</a>
+          </li>
+        {{ range $taxonomyname, $taxonomy := .Site.Taxonomies }}
+          {{ if eq "categories" $taxonomyname }}
+            {{ range $key, $value := $taxonomy }}
+              <li class="nav-item">
+                <a class="nav-link" href="#{{ $key }}">{{ $key | humanize }}</a>
+              </li>
+            {{ end }}
+          {{ end }}
+        {{ end }}
+        </ul>
+      </div>
+    </div>
+    <div class="col">
       {{ partialCached "icons" . "home" }}
-      {{ .Content }}
-    </main>
-
-    {{- partialCached "footer" . }}
-    {{- partialCached "scripts" . "home" }}
-  </body>
-</html>
+    </div>
+  </div>
+{{ end }}
