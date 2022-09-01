@@ -117,9 +117,12 @@
 }
 
 .hero {
-  border-bottom: 1px solid rgba(0, 0, 0, .075);
+  background-color: #fafafa;
+  border-bottom: 1px solid rgba(0, 0, 0, .1);
+  box-shadow: 0 0 0 1px #fff, 0 1rem 2rem rgba(0, 0, 0, .05);
 
   .highlight {
+    padding: 1rem 1.25rem;
     margin-bottom: 0;
     color: var(--bs-gray-200);
     background-color: var(--bs-gray-800);
@@ -134,13 +137,13 @@
   }
 
   .btn-clipboard {
-    top: .625em;
+    top: .4em;
     color: var(--bs-gray-200);
     background-color: var(--bs-gray-800);
   }
 
   .btn {
-    padding: 1rem 1.25rem;
+    padding: .75rem 1.25rem;
     border-radius: .5rem;
   }
 
@@ -157,6 +160,11 @@
 
 .list {
   font-size: 2rem;
+
+  :target {
+    padding-top: 6rem;
+    margin-top: -6rem;
+  }
 
   // stylelint-disable  declaration-no-important
   a:hover,
@@ -233,4 +241,12 @@
     // margin-left: -.25rem;
     overflow-y: auto;
   }
+}
+
+.bd-sidebar-list {
+  --bs-nav-link-padding-y: .375rem;
+  --bs-nav-link-padding-x: .75rem;
+  --bs-nav-link-color: var(--bs-gray-600);
+  --bs-nav-pills-link-active-color: var(--bd-purple);
+  --bs-nav-pills-link-active-bg: rgba(var(--bd-violet-rgb), .05);
 }
