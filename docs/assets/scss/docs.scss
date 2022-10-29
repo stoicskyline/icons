@@ -239,7 +239,6 @@
     position: sticky;
     top: 5rem;
     // Override collapse behaviors
-    // stylelint-disable-next-line declaration-no-important
     // display: block !important;
     height: subtract(100vh, 6rem);
     // Prevent focus styles to be cut off:
@@ -287,10 +286,10 @@
 }
 
 .hover-link-primary:hover {
-  color: var(--bs-primary) !important;
+  color: var(--bs-primary) !important; // stylelint-disable-line declaration-no-important
 }
 .new-shadow {
-  box-shadow: 0 .25rem .75rem var(--bs-shadow-color, rgba(0,0,0,.1));
+  box-shadow: 0 .25rem .75rem var(--bs-shadow-color, rgba(0, 0, 0, .1));
 }
 .hover-shadow-primary:hover {
   --bs-shadow-color: rgba(var(--bs-primary-rgb), .25);
