@@ -12,7 +12,7 @@
         </form>
 
         <h6><a href="/docs">Documentation</a></h6>
-        <ul class="nav nav-pills flex-column bd-sidebar-list d-none">
+        <ul class="nav nav-pills flex-column bd-sidebar-list">
           <li class="nav-item">
             <a class="nav-link" href="">Install</a>
           </li>
@@ -25,9 +25,6 @@
         </ul>
         <h6><a href="/categories">Categories</a></h6>
         <ul id="categories" class="nav nav-pills flex-column bd-sidebar-list">
-          <li class="nav-item">
-            <a class="nav-link active" href="#">All</a>
-          </li>
         {{ range $taxonomyname, $taxonomy := .Site.Taxonomies }}
           {{ if eq "categories" $taxonomyname }}
             {{ range $key, $value := $taxonomy }}

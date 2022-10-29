@@ -167,8 +167,8 @@
   }
 
   // stylelint-disable  declaration-no-important
-  a:hover,
-  a:focus {
+  .list-icon:hover,
+  .list-icon:focus {
     &,
     .name {
       color: var(--bs-blue) !important;
@@ -199,6 +199,12 @@
 }
 
 @media (min-width: 1200px) {
+  .row-cols-xl-6 {
+    > * {
+      flex: 0 0 16.666667%;
+      max-width: 16.666667%;
+    }
+  }
   .row-cols-xl-8 {
     > * {
       flex: 0 0 12.5%;
@@ -249,4 +255,56 @@
   --bs-nav-link-color: var(--bs-gray-600);
   --bs-nav-pills-link-active-color: var(--bd-purple);
   --bs-nav-pills-link-active-bg: rgba(var(--bd-violet-rgb), .05);
+}
+
+.grid {
+  display: grid;
+  grid-template-rows: repeat(var(--bs-rows, 1), 1fr);
+  grid-template-columns: repeat(var(--bs-columns, 12), 1fr);
+  gap: var(--bs-gap, 1.5rem);
+}
+
+.category-grid {
+  --bs-columns: 1;
+
+  @include media-breakpoint-up(sm) {
+    --bs-columns: 2;
+  }
+
+  @include media-breakpoint-up(md) {
+    --bs-columns: 3;
+  }
+
+  @include media-breakpoint-up(lg) {
+    --bs-columns: 4;
+  }
+
+  .bi {
+    width: 3rem;
+    aspect-ratio: 1 / 1;
+    text-align: center;
+  }
+}
+
+.hover-link-primary:hover {
+  color: var(--bs-primary) !important;
+}
+.new-shadow {
+  box-shadow: 0 .25rem .75rem var(--bs-shadow-color, rgba(0,0,0,.1));
+}
+.hover-shadow-primary:hover {
+  --bs-shadow-color: rgba(var(--bs-primary-rgb), .25);
+}
+.hover-border-primary:hover {
+  --bs-border-color: rgba(var(--bs-primary-rgb), .75);
+}
+
+.btn-subtle {
+  --bs-btn-color: #{mix($gray-500, $gray-600)};
+  --bs-btn-bg: #{$gray-100};
+  --bs-btn-hover-color: #{$gray-600};
+  --bs-btn-hover-bg: #{mix($gray-100, $gray-200)};
+  --bs-btn-active-color: #{$gray-600};
+  --bs-btn-active-bg: #{$gray-200};
+  --bs-btn-active-border-color: #{$gray-200};
 }

@@ -5,14 +5,21 @@
         {{ range $key, $value := $taxonomy }}
           <li class="my-5" id="{{ $key }}">
             <h3 class="d-flex align-items-center gap-3 pb-3 mb-4 border-bottom">
-              {{ $key | humanize }}
+              <a href="/categories/{{ $key }}" class="link-dark text-decoration-none">
+                {{ $key | humanize }}
+              </a>
               <small class="badge fs-6 text-muted bg-light rounded-pill">{{ .Count }}</small>
             </h3>
-            <ul class="row row-cols-3 row-cols-sm-4 row-cols-lg-6 row-cols-xl-8 list-unstyled">
-              {{ range $value.Pages }}
+            <ul class="row row-cols-3 row-cols-sm-4 row-cols-lg-4 row-cols-xl-6 list-unstyled">
+              {{ range first 24 ($value.Pages) }}
                 {{ partial "icon" . }}
               {{ end }}
             </ul>
+            {{ if gt .Count 24 }}
+            <a class="d-block py-3 btn btn-subtle" href="/categories/{{ $key }}">
+              View all {{ .Count }}
+            </a>
+            {{ end }}
           </li>
         {{ end }}
       {{ end }}
